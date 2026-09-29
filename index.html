@@ -66,9 +66,10 @@ Explore Now
 </button>
 <br><br>
 
-<button class="btn" onclick="findLocation()">
-📍 Find Messes Near Me
-</button>
+<a href="https://www.google.com/maps/search/mess+near+me"
+   class="btn">
+   📍 Find Messes Near Me
+</a>
 
 <p id="locationResult"></p>
 </section>
@@ -272,14 +273,7 @@ window.onload = function(){
     loadFavorites();
 }
 
-function findLocation() {
 
-    window.open(
-        "https://www.google.com/maps/search/mess+near+me",
-        "_blank"
-    );
-
-}
 
 function loadStatistics(){
 
