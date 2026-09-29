@@ -271,29 +271,40 @@ window.onload = function(){
     loadStatistics();
     loadFavorites();
 }
+<script>
 function findLocation(){
 
-    if(navigator.geolocation){
+    if (!navigator.geolocation) {
+        alert("Geolocation is not supported on this device.");
+        return;
+    }
 
-        navigator.geolocation.getCurrentPosition(function(position){
+    navigator.geolocation.getCurrentPosition(
+        function(position){
 
             let lat = position.coords.latitude;
             let lng = position.coords.longitude;
 
             window.open(
-                `https://www.google.com/maps/search/mess+near+me/@${lat},${lng},15z`,
+                "https://www.google.com/maps/search/mess/@"
+                + lat + "," + lng + ",15z",
                 "_blank"
             );
 
-        });
+        },
+        function(error){
 
-    }else{
+            alert(
+                "Please allow location permission in your browser settings."
+            );
 
-        alert("Geolocation not supported");
-
-    }
+        }
+    );
 
 }
+
+
+
 function loadStatistics(){
 
 document.getElementById("totalMesses").innerText = 16;
